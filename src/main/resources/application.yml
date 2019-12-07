@@ -1,0 +1,8 @@
+spring:
+  datasource:    username: root
+    password: 54516
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  devtools:    restart:      enabled: true
+      additional-paths: /src/main
+mybatis:  mapper-locations: classpath:mapper/*.xml  type-aliases-package: k.m.demo.mapper
