@@ -10,8 +10,20 @@
 		<result column="age" property="age" javaType="java.lang.Integer" jdbcType="INTEGER"/>
 		<result column="s_id" property="s_id" javaType="java.lang.String" jdbcType="VARCHAR"/>
 	</resultMap>
-	
 	<select id="selectAllUsers" resultMap="user_result">
 		select*from sysuser
+	</select>
+	
+	<!--快递帮拿-->
+	<insert id="insertUser" parameterType="k.m.demo.model.cohelpUser">
+		insert into cohelpuser
+		(chUId,name,telephone,site,courier_name,take_num,take_site,weight)
+		values
+		(#{chUId},#{name},#{telephone},#{site},#{courier_name},#{take_num},#{take_site},#{weight}) 
+	</insert>
+	<select id="selectUserByTake_num" parameterType="java.lang.String" resultType="k.m.demo.model.cohelpUser">
+		select * from cohelpuser
+		where
+		chUId = #{chUId}
 	</select>
 </mapper>
