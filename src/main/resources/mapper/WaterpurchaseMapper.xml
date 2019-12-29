@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="k.m.demo.mapper.WaterpurchaseMapper">
+	<resultMap type="k.m.demo.model.Water_purchase" id="waterpurchase_result">
+		<id column="wpID" property="wpID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="uID" property="uID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="wpName" property="wpName" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="wp_num" property="wp_num" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="dormitory" property="dormitory" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="telephone" property="telephone" javaType="java.lang.String" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!-- 查询 -->
+	<!-- 查全部 -->
+	<select id="selectAllWaterpurchase" resultMap="waterpurchase_result">
+		select * from water_purchase
+	</select>
+	
+	<!-- 根据heID查 -->
+	<select id="selectWaterpurchaseBywpID" resultMap="waterpurchase_result">
+		select * from water_purchase
+		where
+		wpID = #{wpID}
+	</select>
+	
+	<!-- 添加 -->
+	<insert id="insertWaterpurchase" parameterType="k.m.demo.model.Water_purchase">
+		insert into water_purchase
+		(wpID,uID,wpName,wp_num,dormitory,telephone)
+		values
+		(#{wpID},#{uID},#{wpName},#{wp_num},#{dormitory},#{telephone})
+	</insert>
+	
+	<!-- 删除 -->
+	<delete id="deleteWaterpurchase" parameterType="k.m.demo.model.Water_purchase">
+		delete from water_purchase
+		where
+		wpID = #{wpID}
+	</delete>
+	
+	<!-- 修改 -->
+	<update id="updateWaterpurchase" parameterType="k.m.demo.model.Water_purchase">
+		update water_purchase
+		set
+		wpID=#{wpID},uID=#{uID},wpName=#{wpName},wp_num=#{wp_num},dormitory=#{dormitory},telephone=#{telephone}
+		where
+		wpID=#{wpID}
+	</update>
+</mapper>

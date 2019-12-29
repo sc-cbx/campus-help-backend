@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="k.m.demo.mapper.HelpexpressMapper">
+	<resultMap type="k.m.demo.model.Help_express" id="helpexpress_result">
+		<id column="heID" property="heID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="uID" property="uID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="pickup_name" property="pickup_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="exName" property="exName" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="receive_site" property="receive_site" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="telephone" property="telephone" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="pickup_site" property="pickup_site" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="pickup_num" property="pickup_num" javaType="java.lang.String" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!-- 查询 -->
+	<!-- 查全部 -->
+	<select id="selectAllHelpexpress" resultMap="helpexpress_result">
+		select * from help_express
+	</select>
+	
+	<!-- 根据heID查 -->
+	<select id="selectHelpexpressByheID" resultMap="helpexpress_result">
+		select * from help_express
+		where
+		heID = #{heID}
+	</select>
+	
+	<!-- 添加 -->
+	<insert id="insertHelpexpress" parameterType="k.m.demo.model.Help_express">
+		insert into help_express
+		(heID,uID,pickup_name,exName,receive_site,telephone,pickup_site,pickup_num)
+		values
+		(#{heID},#{uID},#{pickup_name},#{exName},#{receive_site},#{telephone},#{pickup_site},#{pickup_num})
+	</insert>
+	
+	<!-- 删除 -->
+	<delete id="deleteHelpexpress" parameterType="k.m.demo.model.Help_express">
+		delete from help_express
+		where
+		heID = #{heID}
+	</delete>
+	
+	<!-- 修改 -->
+	<update id="updateHelpexpress" parameterType="k.m.demo.model.Help_express">
+		update help_express
+		set
+		heID=#{heID},uID=#{uID},pickup_name=#{pickup_name},exName=#{exName},receive_site=#{receive_site},telephone=#{telephone},pickup_site=#{pickup_site},pickup_num=#{pickup_num}
+		where
+		heID=#{heID}
+	</update>
+</mapper>

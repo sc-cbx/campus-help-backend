@@ -3,7 +3,6 @@ package k.m.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 //JSON格式
@@ -11,11 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import k.m.demo.model.SysUser;
 import k.m.demo.service.UserService;
-import net.sf.json.JSONObject;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController{
 	@Autowired
 	UserService userService;
 	
@@ -27,6 +25,4 @@ public class UserController {
 	public int create(){
 		return 0;
 	}
-	
-
 }

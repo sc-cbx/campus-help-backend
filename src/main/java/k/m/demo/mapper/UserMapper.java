@@ -10,11 +10,9 @@ public interface UserMapper {
     
 	List<SysUser> selectAllUsers();
 	
-	//快递帮拿
 //	public cohelpUser selectUserByChUId(Integer chUId);//selectUserByChUId 通过取件码去查询cohelpUser
 //	public int insertcohUser(cohelpUser user);
 	
-	//网上购水
 
 
 }
