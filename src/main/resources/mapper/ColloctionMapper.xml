@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="k.m.demo.mapper.ColloctionMapper">
+	<resultMap type="k.m.demo.model.Colloction" id="colloction_result">
+		<id column="cID" property="cID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="gID" property="gID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="gName" property="gName" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="gPrice" property="gPrice" javaType="java.lang.Float" jdbcType="FLOAT" />
+		<result column="gImage" property="gImage" javaType="java.lang.String" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!-- 查询 -->
+	<!-- 查全部 -->
+	<select id="selectAllColloction" resultMap="colloction_result">
+		select * from colloction
+	</select>
+	
+	<!-- 根据heID查 -->
+	<select id="selectColloctionBycID" resultMap="colloction_result">
+		select * from colloction
+		where
+		cID = #{cID}
+	</select>
+	
+	<!-- 添加 -->
+	<insert id="insertColloction" parameterType="k.m.demo.model.Colloction">
+		insert into colloction
+		(cID,gID,gName,gPrice,gImage)
+		values
+		(#{cID},#{gID},#{gName},#{gPrice},#{gImage})
+	</insert>
+	
+	<!-- 删除 -->
+	<delete id="deleteColloction" parameterType="k.m.demo.model.Colloction">
+		delete from colloction
+		where
+		cID = #{cID}
+	</delete>
+	
+	<!-- 修改 -->
+	<update id="updateColloction" parameterType="k.m.demo.model.Colloction">
+		update colloction
+		set
+		cID=#{cID},gID=#{gID},gName=#{gName},gPrice=#{gPrice},gImage=#{gImage}
+		where
+		cID=#{cID}
+	</update>
+</mapper>

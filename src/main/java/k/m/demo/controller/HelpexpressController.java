@@ -50,24 +50,5 @@ public class HelpexpressController {
 		int upd = helpexpressService.updateHelp_express(uexpress);
 		result.put("state", upd);
 		return result;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }
