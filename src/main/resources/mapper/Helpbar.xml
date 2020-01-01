@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="k.m.demo.mapper.HelpbarMapper"> 
+	<resultMap type="k.m.demo.model.Helpbar" id="helpbar_result">
+		<id column="help_id" property="help_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result column="help_name" property="help_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="help_contact" property="help_contact" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="help_replay" property="help_replay" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="help_content" property="help_content" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="help_requirement" property="help_requirement" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="help_time" property="help_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+	</resultMap>
+	<select id="selectAllHelpbar" resultMap="helpbar_result">
+		select * from helpbar
+	</select>
+	
+</mapper>

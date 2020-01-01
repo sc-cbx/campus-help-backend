@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="k.m.demo.mapper.SecgoodsMapper"> 
+	<resultMap type="k.m.demo.model.Secgoods" id="secgoods_result">
+		<id column="secgoods_id" property="secgoods_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result column="secgoods_type" property="secgoods_type" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="secgoods_name" property="secgoods_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="secgoods_price" property="secgoods_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
+		<result column="secgoods_num" property="secgoods_num" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result column="secgoods_newprice" property="secgoods_newprice" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
+		<result column="secgoods_phone" property="secgoods_phone" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="secgoods_introduction" property="secgoods_introduction" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="secgoods_content" property="secgoods_content" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="secgoods_comment" property="secgoods_comment" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="secgoods_poster" property="secgoods_poster" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="secgoods__date" property="secgoods_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+	</resultMap>
+	<select id="selectAllSecgoods" resultMap="secgoods_result">
+		select * from secgoods
+		where secgoods_type=#{secgoods_type}
+	</select>
+	
+</mapper>
