@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     <mapper namespace="k.m.demo.mapper.MessageMapper">
+           <select id="selectUserByName" parameterType="java.lang.String" resultType="k.m.demo.model.User">
+            select * from user 
+            where 
+            name=#{name}
+      </select>   
+      
+      
+        <insert id="insertMessage" parameterType="k.m.demo.model.User" >
+           insert into user
+           (uSex,uAddress,uBirth,uStatus,uOther_message)
+            values
+           (#{uSex},#{uAddress},#{uBirth},#{uStatus},#{uOther_message})
+          
+           
+           
+         </insert>
+         <update id="updateMessage" parameterType="k.m.demo.model.User">
+            update user set 
+            uSex=#{uSex} ,
+            uAddress=#{uAddress},
+            uBirth=#{uBirth},
+            uStatus=#{uStatus},
+            uOther_message=#{uOther_message}
+            where
+            name=#{name} 
+         </update>
+       </mapper>

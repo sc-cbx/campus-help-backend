@@ -25,7 +25,7 @@ public class ColloctionController {
 	
 	@RequestMapping("/getcolloctionList")
 	public List<Colloction> colloction(){
-		return null;
+		return colloctionService.getAllcolloction();
 	}
 	
 	//添加

@@ -1,6 +1,7 @@
 package k.m.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import k.m.demo.model.Secgoods;
 import k.m.demo.service.SecgoodsaddService;
 import net.sf.json.JSONObject;
-
+//跳蚤市场商品的增删改
 @RestController
 @RequestMapping("/secgoods")
 public class SecgoodsaddController {

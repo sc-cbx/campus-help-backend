@@ -1,11 +1,28 @@
 spring:
   datasource:
-<<<<<<< HEAD
-    url: jdbc:mysql://localhost:3306/compus-help?useSSL=false&serverTimezone=GMT%2B8&&allowPublicKeyRetrieval=true
-=======
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&&allowPublicKeyRetrieval=true
->>>>>>> branch 'master' of https://github.com/sc-cbx/campus-help-backend.git
+    username: root
+    password: 54516
+    url: jdbc:mysql://localhost:3306/school?useSSL=false&serverTimezone=GMT%2B8&&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
   devtools:    restart:      enabled: true
       additional-paths: /src/main
+  mail:
+    host: smtp.qq.com    #邮箱服务器地址
+    username: 1529108333@qq.com   #邮箱账号
+    password: wcyptkztnlvthcgh     #邮箱密码
+    default-encoding: utf-8 #默认编码
+    properties:
+      mail:
+        stmp:
+          ssl:
+            enable: ture
+            required: ture
 mybatis:  mapper-locations: classpath*:mapper/*.xml  type-aliases-package: k.m.demo.mapper
+
+  
+
+#邮件发件人
+mail:
+  fromMail:
+    message.setFrom: 校园帮
+    addr: 1529108333@qq.com

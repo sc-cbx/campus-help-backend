@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+    <mapper namespace="k.m.demo.mapper.RegisterMapper">
+           <select id="selectUserByName" parameterType="java.lang.String" resultType="k.m.demo.model.User">
+            select * from user 
+            where 
+            name=#{name}
+           </select>
+        
+           <insert id="insertUser" parameterType="k.m.demo.model.User" >
+           insert into user
+           (name,password,confirm_password,uRegTime)
+            values
+           (#{name},#{password},#{confirm_password},now())
+           
+           
+           </insert>
+           <update id="updateTime"  parameterType="k.m.demo.model.User" >
+           update user set
+           uRegTime=#{now()}
+           where
+           name=#{name}
+           </update>
+       
+           
+     </mapper>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="k.m.demo.mapper.UserMapper">
+        <!-- 结果集 resultMup -->
+         <resultMap type="k.m.demo.model.SysUser" id="user_result">
+           <id column="u_id" property="UId" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+           <result column="username" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
+           <result column="password" property="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
+           <result column="id" property="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+           <result column="age" property="age" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+           <result column="name" property="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+           
+        </resultMap>
+        <resultMap type="k.m.demo.model.User" id="user_result1">
+             <result column="uTureName" property="uTureName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+             <result column="uId_card" property="uId_card" javaType="java.lang.String" jdbcType="VARCHAR"/>
+             <result column="email" property="email" javaType="java.lang.String" jdbcType="VARCHAR"/>
+             <result column="uRenZhengTime" property="uRenZhengTime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+              
+        </resultMap>
+        <!-- 根据用户名查询所有 -->
+        <select id="selectAllUsers" resultMap="user_result">
+        select * from sysuser
+        </select>
+          <!-- 根据用户名查询所有 -->
+         <select id="selectUserByName" parameterType="java.lang.String" resultType="k.m.demo.model.User">
+            select * from user 
+            where 
+            name=#{name}
+           </select>
+             <!-- 重设密码 -->
+          <update id="updatepassword" parameterType="k.m.demo.model.User" >
+            update user set 
+            password=#{password},
+            confirm_password=#{confirm_password}
+            where 
+            email=#{email}
+          </update>
+            <!-- 添加银行卡 -->
+          <update id="updatebankcard" parameterType="k.m.demo.model.User" >
+           update user set
+           uBank_card=#{uBank_card}
+           where
+           name= #{name}
+          </update>
+            <!-- 实名认证 -->
+          <update id="updateUserCertification" parameterType="k.m.demo.model.User">
+           update user set
+           uTureName=#{uTureName},
+           uId_card=#{uId_card},
+           uRenZhengTime=now()
+           where
+           name=#{name}
+          </update>
+            <!-- 获取基本实名信息 -->
+          <select id="selectBasicMessage" parameterType="java.lang.String" resultType="k.m.demo.model.User" resultMap="user_result1">
+           select uTureName,uId_card,email,uRenZhengTime from user
+           where
+           name=#{name}
+          </select>
+          <delete id="userdeletebyname" parameterType="k.m.demo.model.User">
+           delete from user
+           where
+           name=#{name}
+          </delete>
+            <!-- 更改头像 -->
+         <update id="updatephoto" parameterType="k.m.demo.model.User" >
+           update user set
+           uAwatar=#{uAwatar}
+           where
+           name= #{name}
+          </update>
+          <!-- 绑定邮箱 -->
+          <update id="email_bang" parameterType="k.m.demo.model.User" >
+           update user set
+           email=#{email}
+           where
+           name= #{name}
+          </update>
+ </mapper>

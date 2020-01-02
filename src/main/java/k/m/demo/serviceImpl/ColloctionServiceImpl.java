@@ -46,7 +46,7 @@ public class ColloctionServiceImpl implements ColloctionService{
 	public int createColloction(Colloction ccolloction, InputStream fileStream) {
 		// TODO Auto-generated method stub
 		Colloction ct = colloctionMapper.selectColloctionBycID(ccolloction.getcID());
-		String path = "C:\\Users\\zhangyu\\Desktop\\campus_help_backstage\\help_express";
+		String path = "D:\\workspace\\react\\goodsImage";
 		int i = -1;
 		byte[] bs = new byte[1024];
 		

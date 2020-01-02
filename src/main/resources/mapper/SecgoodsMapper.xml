@@ -18,7 +18,6 @@
 	</resultMap>
 	<select id="selectAllSecgoods" resultMap="secgoods_result">
 		select * from secgoods
-		where secgoods_type=#{secgoods_type}
 	</select>
 	
 </mapper>
